@@ -25,7 +25,7 @@ const pokemon = Object.freeze([
     ]);
 
 
-    //const bListPkmn = pokemon.filter( p => p.name[0] === "B" );
+    const bListPkmn = pokemon.filter( p => p.name[0] === "B" );
     
     const divTree = pokemon.filter( p => p.id%3===0).map(p=>p)
 
@@ -42,7 +42,6 @@ const pokemon = Object.freeze([
     const oPoison = pokemon.filter( p =>p.types[0].includes('poison') && p.types.length === 1).map( p =>p.name);
 
     const oVolador = pokemon.filter( p =>p.types[1]==='flying').map( p =>p.types[0]);
-
 
     const count = pokemon.filter( p =>p.types.includes('normal')).length;
 

@@ -205,6 +205,20 @@ const sortClientsTotalBalances = () => {
     return bankBalacesSort.sort((a, b) => Object.values(b) - Object.values(a)).map(nameClient => Object.keys(nameClient)[0]);
 }
 
+const orNames = () => {
+    const saldoSort = clients.map(client => {
+    let saldo = [];
+    accounts.filter(cuenta => cuenta.clientId === client.id && saldo.push(cuenta.balance))
+    return {[client.name]: cuenta.reduce((a,b) => a+b)}
+    })
+
+    return saldoSort.sort((a,b) => Object.values(b)-Object.values(a)).map(names => Object.keys(names)[0]);
+
+}
+
+console.log(orNames())
+
+
 // 3 Objeto en que las claves sean los nombres de los bancos y los valores un arreglo 
 //con los ruts de sus clientes ordenados alfabeticamente por nombre.
 const banksClientsTaxNumbers = () => {
